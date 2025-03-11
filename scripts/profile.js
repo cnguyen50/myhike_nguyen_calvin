@@ -41,19 +41,19 @@ function editUserInfo() {
     document.getElementById('personalInfoFields').disabled = false;
 }
 
-// function saveUserInfo() {
-//     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-//     userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
-//     userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
+function saveUserInfo() {
+    userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
+    userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
+    userCity = document.getElementById('cityInput').value;       //get the value of the field with id="cityInput"
 
-//     currentUser.update({
-//         name: userName,
-//         school: userSchool,
-//         city: userCity
-//     })
-//     .then(() => {
-//         console.log("Document successfully updated!");
-//     })
+    currentUser.update({
+        name: userName,
+        school: userSchool,
+        city: userCity
+    })
+    .then(() => {
+        console.log("Document successfully updated!");
+    })
 
-//     document.getElementById('personalInfoFields').disabled = true;
-// }
+    document.getElementById('personalInfoFields').disabled = true;
+}
