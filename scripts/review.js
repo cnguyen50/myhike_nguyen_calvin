@@ -1,9 +1,9 @@
-function saveHikeDocumentIDAndRedirect() {
+// function saveHikeDocumentIDAndRedirect() {
 
-}
+// }
 
-function writeReview() {
-    
-}
+// function writeReview() {
 
-saveHikeDocumentIDAndRedirect()
+// }
+
+// saveHikeDocumentIDAndRedirect()
