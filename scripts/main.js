@@ -24,6 +24,19 @@ function getNameFromAuth() {
 }
 // getNameFromAuth(); //run the function
 
+// Insert name function using the global variable "currentUser"
+function insertNameFromFirestore() {
+    currentUser.get().then(userDoc => {
+        //get the user name
+        var user_Name = userDoc.data().name;
+        console.log(user_Name);
+        $("#name-goes-here").text(user_Name); //jquery
+        // document.getElementByID("name-goes-here").innetText=user_Name;
+    })
+}
+// Comment out the next line (we will call this function from doAll())
+// insertNameFromFirestore();
+
 // Function to read the quote of the day from the Firestore "quotes" collection
 // Input param is the String representing the day of the week, aka, the document name
 function readQuote(day) {
@@ -145,8 +158,7 @@ function doAll() {
 
             // the following functions are always called when someone is logged in
             readQuote(day);
-            getNameFromAuth()
-            // insertNameFromFirestore();
+            insertNameFromFirestore();
             displayCardsDynamically("hikes");
         } else {
             // No user is signed in.
