@@ -22,7 +22,7 @@ function getNameFromAuth() {
         }
     });
 }
-getNameFromAuth(); //run the function
+// getNameFromAuth(); //run the function
 
 // Function to read the quote of the day from the Firestore "quotes" collection
 // Input param is the String representing the day of the week, aka, the document name
@@ -41,7 +41,7 @@ function readQuote(day) {
             console.log ("Error calling onSnapshot", error);
         });
     }
- readQuote("tuesday");        //calling the function
+//  readQuote("tuesday");        //calling the function
 
 
 function writeHikes() {
@@ -145,7 +145,8 @@ function doAll() {
 
             // the following functions are always called when someone is logged in
             readQuote(day);
-            insertNameFromFirestore();
+            getNameFromAuth()
+            // insertNameFromFirestore();
             displayCardsDynamically("hikes");
         } else {
             // No user is signed in.
