@@ -95,7 +95,10 @@ function writeHikes() {
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("hikeCardTemplate"); // Retrieve the HTML element with the ID "hikeCardTemplate" and store it in the cardTemplate variable. 
 
-    db.collection(collection).get()   //the collection called "hikes"
+    db.collection(collection)
+        .orderBy("length")
+        .limit(3)
+        .get()   //the collection called "hikes"
         .then(allHikes=> {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
             allHikes.forEach(doc => { //iterate thru each doc
@@ -107,7 +110,7 @@ function displayCardsDynamically(collection) {
                 var docID = doc.id;
 
                 newcard.querySelector('.card-length').innerHTML =
-                    "Length: " + doc.data().length + " km <br>" +
+                    "Length: " + hikeLength + " km <br>" +
                     "Duration: " + doc.data().hike_time + "min <br>" +
                     "Last updated: " + doc.data().last_updated.toDate().toLocaleDateString();
 
@@ -128,6 +131,7 @@ function displayCardsDynamically(collection) {
                 //attach to gallery, Example: "hikes-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
 
+                //checks database if it's already bookmarked onLoad to keep the bookmarked state
                 currentUser.get().then(userDoc => {
                     //get the user name
                     var bookmarks = userDoc.data().bookmarks;
